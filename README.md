@@ -1,3 +1,19 @@
+This repo illustrates a bug with onLeave/onError not being called on the client-side when the internet connection is lost.
+
+Steps to reproduce:
+1. Open the examples website, but use the form of your_local_ip_address:2567 instead of localhost:2567.
+2. Choose example 08-no-on-leave.
+3. Click the "join room" button.
+4. Notice in the console the "Welcome" message.
+5. Click "forcibly close room connection".
+6. Notice the "OnLeave" message in Developers Console.
+7. Click the "reconnect" button.
+8. Again, notice in the console the "Welcome" message.
+9. Disconnect your WiFi connection.
+10. Notice there is no "OnLeave" message in the console. Neither onLeave nor onError callback is called.
+
+Video: https://www.loom.com/share/5c21ab7f1f8948c9b01f445831a6e9ef
+
 <div align="center">
   <a href="https://github.com/colyseus/colyseus">
     <img src="https://github.com/colyseus/colyseus/blob/master/media/header.png?raw=true" />
